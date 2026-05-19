@@ -59,7 +59,10 @@ class Interpreter:
             function_name = function_name.split('.')[-1]
 
         # Sometimes pyautogui needs warming up i.e. sometimes first call isn't executed hence padding a random call here
-        pyautogui.press("command", interval=0.2)
+        # Use platform-appropriate modifier key (command for macOS, win for Windows)
+        import platform
+        modifier_key = "command" if platform.system() == 'Darwin' else "win"
+        pyautogui.press(modifier_key, interval=0.2)
 
         if function_name == "sleep" and parameters.get("secs"):
             sleep(parameters.get("secs"))

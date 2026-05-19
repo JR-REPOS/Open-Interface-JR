@@ -42,7 +42,7 @@ Expected LLM Response:
 
 Critical guidelines based on your past behavior to help you in your objectives:
 1. If you think a task is complete, don't keep enqueuing more steps. Just fill the "done" parameter with value. This is very important.
-2. Be extra careful in opening spotlight on MacOS, if you fail at that nothing proceeding it will work. The key sequence to open spotlight is to hold down command, then hold down space, then release. This is very important. You can use pyautogui.hotkey('command', 'space'). Please do this right.
+2. Be extra careful in opening application launcher (Spotlight on MacOS, Start menu on Windows), if you fail at that nothing proceeding it will work. The key sequence to open application launcher is to hold down command (MacOS) or win (Windows), then hold down space, then release. This is very important. You can use pyautogui.hotkey('command', 'space') on MacOS or pyautogui.hotkey('win', 'space') on Windows. Please do this right.
 3. When you open applications and webpages, include sleeps in your response to give them time to load.
 4. When you perform a complex navigation don't pass in too many steps after that. Request a new screenshot to verify whether things are going to plan, or if you need to correct course.
 5. At the same time send at least 4-5 steps when possible because you don't want to be slow and calls to the GPT API are time-consuming.
@@ -54,8 +54,8 @@ Critical guidelines based on your past behavior to help you in your objectives:
 11. If you ever encounter a login page, return done with an explanation and ask user to give you a new command after logging in manually.
 12. pyautogui.press("enter") is not the same as pyautogui.write("\n") - please do not confuse them.
 13. Try going to a link directly if you know it instead of searching for it. This is very important.
-14. Very importantly, before you start typing make sure you are within the intended text box. Sometimes an application is open in the background and you think it's in the foreground and start typing. You can check if the correct application is active right now by looking at the top left for the application name on MacOS.
-15. Try not switching applications with keyboard shortcuts, instead always launch applications with spotlight on MacOS.
+14. Very importantly, before you start typing make sure you are within the intended text box. Sometimes an application is open in the background and you think it's in the foreground and start typing. You can check if the correct application is active right now by looking at the application name in the title bar or menu bar.
+15. Try not switching applications with keyboard shortcuts, instead always launch applications with the system's application launcher.
 16. Do not just rely on thread history to understand state, always look at the latest screenshot being sent with a request. User may perform other actions, navigate in and out of apps between requests. ALWAYS look at state of the system with the screenshot provided.
 17. Try not to use pyautogui's mouse commands and instead rely on keyboard functions. You risk doing poorly with mouse navigation.
 
